@@ -135,19 +135,19 @@ REACT_APP_API_URL=http://localhost:5000
 
 
 # Backend
-cd backend
-touch .env   # fill in values
-npm install
-npm start              # runs on http://localhost:5000
+cd backend  
+touch .env   # fill in values   
+npm install   
+npm start  - runs on http://localhost:5000
 
 # Frontend (new terminal)
-cd frontend
-cd .env   # REACT_APP_API_URL=http://localhost:5000
-npm install
-npm start              # runs on http://localhost:3000
+cd frontend   
+cd .env   # REACT_APP_API_URL=http://localhost:5000   
+npm install    
+npm start              # runs on http://localhost:3000 
 ```
 
-**Option 2 - With Docker Compose:**
+** With Docker Compose:**
 ```bash
 docker-compose up --build
 # Frontend: http://localhost:3000
@@ -270,7 +270,7 @@ Database initialized successfully
 
 In Part B, instead of manually building and pushing images, Render builds the Docker image directly from the GitHub repository every time a new commit is pushed to the `main` branch. This is what makes it proper CI/CD — the deployment is fully automated without any manual steps.
 
-> **Note on render.yaml / Blueprint:** The Render Blueprint feature requires a paid plan and does not work on the free tier. For this assignment, the same automated CI/CD behavior was achieved by connecting Render services directly to the GitHub repository. Render still rebuilds and redeploys on every `git push` to `main`, which fully satisfies the core requirement of the assignment. The `render.yaml` file is included in the repository to demonstrate understanding of the Blueprint specification.
+> **Note on render.yaml / Blueprint:** For this assignment, the  automated CI/CD behavior was achieved by connecting Render services directly to the GitHub repository. Render  rebuilds and redeploys on every `git push` to `main`, which fully satisfies the core requirement of the assignment. The `render.yaml` file is included in the repository to demonstrate understanding of the Blueprint specification.
 
 ### Step B1 - Push Code to GitHub
 
