@@ -3,6 +3,7 @@ services:
     name: be-todo
     env: docker
     dockerfilePath: ./todo-app/backend/Dockerfile
+    rootDir: ./todo-app/backend
     plan: free
     envVars:
       - key: DB_HOST
@@ -34,6 +35,7 @@ services:
     name: fe-todo
     env: docker
     dockerfilePath: ./todo-app/frontend/Dockerfile
+    rootDir: ./todo-app/frontend
     plan: free
     envVars:
       - key: REACT_APP_API_URL
