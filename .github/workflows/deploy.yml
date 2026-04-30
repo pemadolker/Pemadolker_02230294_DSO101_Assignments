@@ -15,11 +15,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push Docker Image
+      - name: Build and Push Backend Image
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/be-todo:latest ./todo-app/backend
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/be-todo:latest
 
-      - name: Trigger Render Deployment
+      - name: Build and Push Frontend Image
         run: |
-          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/fe-todo:latest ./todo-app/frontend
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/fe-todo:latest
+
+      - name: Trigger Render Backend Deployment
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
