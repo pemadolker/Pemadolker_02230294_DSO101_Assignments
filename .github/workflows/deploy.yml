@@ -25,5 +25,8 @@ jobs:
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/fe-todo:latest ./todo-app/frontend
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/fe-todo:latest
 
-      - name: Trigger Render Backend Deployment
+      - name: Trigger Backend Render Deployment
         run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+
+      - name: Trigger Frontend Render Deployment
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL_FE }}
