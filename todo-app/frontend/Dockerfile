@@ -4,5 +4,5 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 ENV PORT=3000
-EXPOSE 3000
-CMD ["npm", "start"]
+RUN npm run build
+CMD ["npx", "serve", "-s", "build", "-l", "3000"]
