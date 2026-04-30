@@ -5,7 +5,12 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "build": "echo 'Build step - no compile needed for plain JS'",
+    "test": "jest --ci --reporters=default --reporters=jest-junit",
     "dev": "nodemon server.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -14,6 +19,9 @@
     "pg": "^8.11.3"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "jest": "^30.3.0",
+    "jest-junit": "^16.0.0",
+    "nodemon": "^3.0.2",
+    "supertest": "^7.2.2"
   }
 }
